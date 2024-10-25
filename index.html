@@ -250,66 +250,74 @@
             <h2>Explore Fashion & Trends</h2>
             <div class="card-layout">
                 <div class="card">
-                    <h3>Trendy Outfits</h3>
-                    <p>Stay ahead in fashion with trendy outfits and tips on sustainable clothing.</p>
+                    <h3>Summer Fashion</h3>
+                    <p>Get the latest on summer fashion trends and styles to keep you looking your best.</p>
                 </div>
                 <div class="card">
-                    <h3>Seasonal Colors</h3>
-                    <p>Discover the hottest colors and styles for this season.</p>
+                    <h3>Sustainable Wardrobe</h3>
+                    <p>Explore how to build a sustainable wardrobe that's both eco-friendly and stylish.</p>
                 </div>
                 <div class="card">
-                    <h3>Fashion Tips</h3>
-                    <p>Get tips on how to revamp your wardrobe with timeless fashion pieces.</p>
+                    <h3>Accessories Guide</h3>
+                    <p>Complete your look with our guide to the perfect accessories for any occasion.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <p class="text-center">Feel free to reach out to us for any inquiries or collaborations!</p>
-        </section>
-
-        <!-- Subscribe Section with Form -->
+        <!-- Join Our Community Section -->
         <section id="subscribe" class="mt-5 p-4 bg-light rounded shadow text-center">
             <h2 class="font-weight-bold mb-3">Join Our Community</h2>
             <p class="mb-4">Subscribe for the latest lifestyle updates</p>
-            <form class="form-inline justify-content-center">
+            <form id="subscribeForm" class="form-inline justify-content-center">
                 <div class="form-group mb-2">
-                    <input type="text" class="form-control mr-3" placeholder="First Name">
+                    <input type="text" class="form-control mr-3" id="firstName" placeholder="First Name" required>
                 </div>
                 <div class="form-group mb-2">
-                    <input type="email" class="form-control mr-3" placeholder="Email">
+                    <input type="email" class="form-control mr-3" id="email" placeholder="Email" required>
                 </div>
                 <button type="submit" class="btn btn-primary mb-2">Subscribe</button>
             </form>
+            <div id="formMessage" class="mt-3"></div> <!-- Placeholder for success or error message -->
         </section>
     </main>
 
-    <!-- Footer with Social Media Icons -->
+    <!-- Footer with Social Media Links -->
     <footer>
-        <p>&copy; 2024 Lifestyle Vibes. All rights reserved.</p>
+        <p>&copy; 2024 Lifestyle Vibes. All Rights Reserved.</p>
         <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
             <a href="#"><i class="fab fa-twitter"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
         </div>
-        <a href="#">Privacy Policy</a> • <a href="#">Terms & Conditions</a>
     </footer>
 
-    <!-- JavaScript for Sticky Header Behavior -->
+    <!-- Bootstrap JS, jQuery, and Popper.js for Interactive Elements -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- JavaScript to Handle Form Submission -->
     <script>
-        window.addEventListener('scroll', function () {
-            const header = document.querySelector('header');
-            header.classList.toggle('scrolled', window.scrollY > 50);
+        document.getElementById('subscribeForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent page reload
+
+            // Get values from input fields
+            const firstName = document.getElementById('firstName').value;
+            const email = document.getElementById('email').value;
+
+            // Basic validation (could be expanded with more checks)
+            if (firstName && email) {
+                // Simulate form submission success (In real case, send the data to a server)
+                document.getElementById('formMessage').innerHTML = `<div class="alert alert-success">Thank you, ${firstName}, for subscribing!</div>`;
+
+                // Clear form fields
+                document.getElementById('firstName').value = '';
+                document.getElementById('email').value = '';
+            } else {
+                document.getElementById('formMessage').innerHTML = `<div class="alert alert-danger">Please enter both name and email!</div>`;
+            }
         });
     </script>
-
-    <!-- Bootstrap and jQuery Dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-
 </html>
